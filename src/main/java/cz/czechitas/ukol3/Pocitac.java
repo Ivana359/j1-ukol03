@@ -4,13 +4,17 @@ public class Pocitac {
     private boolean jeZapnuty;
     private Procesor cpu;
     private Pamet ram;
-    private Disk pevnyDisk;
+    private Disk pevnyDisk = new Disk();
+
 
 
 
     public boolean isJeZapnuty() {
         return jeZapnuty;
+
+
     }
+
 
     public void zapniSe () {
         if (jeZapnuty) {
@@ -35,6 +39,50 @@ public class Pocitac {
             System.out.println("PC je již vypnutý.");
         }
     }
+public void vytvorSouborOVelikosti (long velikost){
+        if (!jeZapnuty){
+            System.err.println("PC je vypnutý. Není možné vytvářet nové soubory!");
+
+        }else  {
+            if (pevnyDisk.getVyuziteMisto() + velikost < pevnyDisk.getKapacita()){
+                pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() + velikost);
+                System.out.println("Došlo k vytvoření nového souboru o velikosti: "+ velikost + " bajtů.");
+                System.out.println(pevnyDisk.toString());
+
+            }else {
+                System.err.println("PC nemá dostatečnou kapacitu disku na vytvoření nového souboru o velikosti: " + velikost + " bajtů.");
+                System.out.println(pevnyDisk.toString());
+            }
+        }
+    }
+    public void vymazSouboryOVelikosti(long velikost) {
+
+        if (!jeZapnuty) {
+            System.err.println("PC je vypnutý. Není možné vytvářet nové soubory!");
+
+        } else {
+
+            if (pevnyDisk.getVyuziteMisto() < velikost) {
+
+                velikost = pevnyDisk.getVyuziteMisto();
+
+            }
+
+            pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() - velikost);
+
+            System.out.println("Došlo k odstranění souboru o velikosti " + velikost + " bajtu.");
+
+
+            System.out.println(pevnyDisk.toString());
+
+
+
+        }
+
+    }
+
+
+
     public void setJeZapnuty(boolean jeZapnuty) {
         this.jeZapnuty = jeZapnuty;
     }
@@ -61,6 +109,7 @@ public class Pocitac {
 
     public void setPevnyDisk(Disk pevnyDisk) {
         this.pevnyDisk = pevnyDisk;
+
     }
     @Override
     public String toString() {

@@ -6,6 +6,7 @@ public class Disk {
     private long vyuziteMisto;
 
 
+
     public long getKapacita() {
         return kapacita;
     }
@@ -21,6 +22,7 @@ public class Disk {
     public void setVyuziteMisto(long vyuziteMisto) {
         this.vyuziteMisto = vyuziteMisto;
     }
+    // udělat metodu obsad místo a do parametrů dát bajty - vezmu využité místo, přičtu k tomu kolik potřebuju přiřadit
 
     @Override
     public String toString() {

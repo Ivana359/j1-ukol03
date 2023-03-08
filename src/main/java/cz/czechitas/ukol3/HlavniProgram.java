@@ -24,6 +24,7 @@ public class HlavniProgram {
 
         Disk ivyDisk = new Disk();
         ivyDisk.setKapacita(1_000_000_000_000L);
+        ivyDisk.setVyuziteMisto(291_000_000_000L);
 
         ivyPc.setCpu(ivyProcesor);
         ivyPc.setRam(ivyPamet);
@@ -39,6 +40,30 @@ public class HlavniProgram {
 
         ivyPc.vypniSe();
         ivyPc.vypniSe();
+
+
+        ivyPc.zapniSe();
+
+        ivyPc.vytvorSouborOVelikosti(333_000L);
+
+
+
+        ivyPc.vypniSe();
+
+        ivyPc.vytvorSouborOVelikosti(200_000L);
+
+
+
+        ivyPc.zapniSe();
+
+        ivyPc.vytvorSouborOVelikosti(300_000L);
+
+        ivyPc.vymazSouboryOVelikosti(300_000L);
+
+
+
+        ivyPc.vytvorSouborOVelikosti(200_000_000_000L);
+
     }
 
 }
