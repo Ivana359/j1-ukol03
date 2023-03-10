@@ -7,7 +7,7 @@ public class HlavniProgram {
 
     public static void main(String... args) {
         //TODO tady bude váš kód - vytvoření instance třídy Pocitac, zapnutí, vpynutí, výpis hodnot.
-       // System.out.println("Program spuštěn.");
+        // System.out.println("Program spuštěn.");
 
 
         Pocitac ivyPc;
@@ -22,14 +22,19 @@ public class HlavniProgram {
         Pamet ivyPamet = new Pamet();
         ivyPamet.setKapacita(16_000_000_000L);
 
-        Disk ivyDisk = new Disk();
-        ivyDisk.setKapacita(1_000_000_000_000L);
-        ivyDisk.setVyuziteMisto(291_000_000_000L);
+
+        Disk ivyDisk = new Disk(1_000_000_000_000L, 291_000_000_000L, "jedna - pevný disk");
+
+        Disk extDisk = new Disk(3_000_000_000_000L, "dvě - externí disk");
+        //extDisk.setKapacita(3_000_000_000_000L);
+        //extDisk.setVyuziteMisto(0L);
 
         ivyPc.setCpu(ivyProcesor);
         ivyPc.setRam(ivyPamet);
+        ivyPc.setExterniDisk(extDisk);
         ivyPc.setPevnyDisk(ivyDisk);
 
+
         System.out.println(ivyPc.toString());
 
         ivyPc.zapniSe();
@@ -39,7 +44,7 @@ public class HlavniProgram {
         ivyPc.vypniSe();
 
         ivyPc.vypniSe();
-        ivyPc.vypniSe();
+        //ivyPc.vypniSe();
 
 
         ivyPc.zapniSe();
@@ -47,11 +52,9 @@ public class HlavniProgram {
         ivyPc.vytvorSouborOVelikosti(333_000L);
 
 
-
         ivyPc.vypniSe();
 
         ivyPc.vytvorSouborOVelikosti(200_000L);
-
 
 
         ivyPc.zapniSe();
@@ -61,9 +64,8 @@ public class HlavniProgram {
         ivyPc.vymazSouboryOVelikosti(300_000L);
 
 
-
-        ivyPc.vytvorSouborOVelikosti(200_000_000_000L);
-
+        ivyPc.vytvorSouborOVelikosti(2_500_000_000_000L);
+        ivyPc.vymazSouboryOVelikosti(2_500_000_000_000L);
     }
 
 }
